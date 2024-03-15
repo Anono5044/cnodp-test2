@@ -1,0 +1,16 @@
+altair
+numpy
+pandas
+pydeck
+streamlit
+matplotlib
+datetime
+dateutil
+sklearn
+xgboost
+warnings
+tqdm
+plotly
+time
+geopandas
+pgeocode
