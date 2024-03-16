@@ -6,7 +6,7 @@ streamlit
 matplotlib
 datetime
 dateutils
-sklearn
+scikit-learn
 xgboost
 warnings
 tqdm
