@@ -8,7 +8,6 @@ datetime
 dateutils
 scikit-learn
 xgboost
-warnings
 tqdm
 plotly
 time
