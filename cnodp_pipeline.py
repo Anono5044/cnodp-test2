@@ -599,7 +599,7 @@ class Cnod:
         # Estimator
         pred = self.model.predict(X)
         feature_contributions = self.model.get_booster().predict(
-            new_data_dmatrix, pred_contribs=True, ntree_limit=self.n_trees)
+            new_data_dmatrix, pred_contribs=True) #, ntree_limit=self.n_trees)
 
         # Results
         self.horizon['Predicted_Days_Later'] = pred
