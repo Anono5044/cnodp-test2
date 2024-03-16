@@ -264,7 +264,7 @@ class Cnod:
                         "sim_Quantity": sim_qty, #customer_data["Quantity"].min(), 
                         "sim_Price": sim_price, #customer_data["UnitPrice"].min(),
                       }
-                    customer_projection = customer_projection.append(new_order, ignore_index=True)
+                    customer_projection = customer_projection._append(new_order, ignore_index=True)
                     order_date = predicted_date
 
                 projections.extend(customer_projection.to_dict(orient="records"))
