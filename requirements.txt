@@ -5,7 +5,7 @@ pydeck
 streamlit
 matplotlib
 datetime
-dateutil
+dateutils
 sklearn
 xgboost
 warnings
