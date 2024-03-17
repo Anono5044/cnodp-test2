@@ -270,7 +270,7 @@ class Cnod:
 
                 projections.extend(customer_projection.to_dict(orient="records"))
                 loop_ctrler = loop_ctrler+1
-                if loop_ctrler > 240:
+                if loop_ctrler > 301:
                     print('loop_ctrler value: ', loop_ctrler)
                     break
 
