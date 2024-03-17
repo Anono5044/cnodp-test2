@@ -270,7 +270,7 @@ class Cnod:
 
                 projections.extend(customer_projection.to_dict(orient="records"))
                 loop_ctrler = loop_ctrler+1
-                if loop_ctrler > 300:
+                if loop_ctrler > 200:
                     break
 
             return pd.DataFrame(projections)
