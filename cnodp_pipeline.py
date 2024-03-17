@@ -228,6 +228,7 @@ class Cnod:
         evaluation_start = test_data_actual["OrderDate"].min()
         evaluation_end = test_data_actual["OrderDate"].max()
         projections = []
+        loop_ctrler =1
         
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
@@ -268,6 +269,9 @@ class Cnod:
                     order_date = predicted_date
 
                 projections.extend(customer_projection.to_dict(orient="records"))
+                loop_ctrler = loop_ctrler+1
+                if loop_ctrler > 200:
+                    break
 
             return pd.DataFrame(projections)
 
