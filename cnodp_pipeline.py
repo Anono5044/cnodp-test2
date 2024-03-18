@@ -231,11 +231,12 @@ class Cnod:
         loop_ctrler =0
         
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
+            #warnings.simplefilter("ignore")
             for customer_id in tqdm(test_data_actual["AccountNo"].unique(), desc="Predicting next orders"):
                 customer_data = test_data_actual.loc[test_data_actual["AccountNo"] == customer_id]
                 order_date = evaluation_start #customer_data["OrderDate"].iloc[0]  # Initial order date
                 customer_projection = pd.DataFrame()
+                print('customer: ',customer_id)
                 while order_date < evaluation_end:
                     # Predict next order date
                     features = customer_data[["Quantity", "total_price", 'CreditLimit', 'AccountNo_CV', 'MarketSector_CV', 
