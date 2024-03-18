@@ -228,7 +228,7 @@ class Cnod:
         evaluation_start = test_data_actual["OrderDate"].min()
         evaluation_end = test_data_actual["OrderDate"].max()
         projections = []
-        loop_ctrler =1
+        loop_ctrler =0
         
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
