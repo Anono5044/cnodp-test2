@@ -231,6 +231,7 @@ class Cnod:
         loop_ctrler =0
         
         with warnings.catch_warnings():
+            print('***************I am here**************')
             #warnings.simplefilter("ignore")
             for customer_id in tqdm(test_data_actual["AccountNo"].unique(), desc="Predicting next orders"):
                 customer_data = test_data_actual.loc[test_data_actual["AccountNo"] == customer_id]
