@@ -269,7 +269,8 @@ elif menu_option == "Benefits":
         y_pred = model.predict(test_data[["Quantity", "total_price", 'CreditLimit', 'AccountNo_CV', 'MarketSector_CV', 
                                 'ProductCode_CV', 'CustRegion_CV', 'AccountNo_MICV', 'MarketSector_MICV', 'Recency', 
                                 'Frequency', 'Monetary', 'R_Score', 'F_Score', 'M_Score']])
-
+        print('y_pred have been extracted')
+        
         # Calculate RMSE (square root of mean squared error)
         rmse = mean_squared_error(test_data.Days_Next_Order, y_pred, squared=False)  # Square root for RMSE
 
