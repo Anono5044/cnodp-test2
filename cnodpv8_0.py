@@ -255,7 +255,7 @@ elif menu_option == "Benefits":
         train_data, test_data = train_test_split(cnod.training_and_validation, test_size=0.2, random_state=14, shuffle=False)
 
         # Dataframe with actual quantity and price from test data
-        limit_number_cust = 100 #240
+        limit_number_cust = 99 #240
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
         baseline = baseline.head(limit_number_cust)
         print('baseline have been calculated')
