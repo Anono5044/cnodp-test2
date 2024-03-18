@@ -313,9 +313,13 @@ elif menu_option == "Benefits":
     #st.write("ML Projection Total (Quantity, Price): ", ml_projection['sim_Quantity'].sum(), ml_projection['sim_Price'].sum())
 
     # Package final dataframe
-    Comparison_df = baseline.merge(ml_projection, on='AccountNo', how='left').merge(
+    Comparison_df = baseline.merge(ml_projection, on='AccountNo', how='inner').merge(
         raw[['AccountNo','MarketSector','CustRegion', 'CustSubRegion']].drop_duplicates(subset=['AccountNo']),on='AccountNo', how='inner') 
     #st.dataframe(Comparison_df)
+    raw=none
+    baseline=none
+    ml_projection=none
+    
     
     # Create a slider to select the percentage adjustment
     percentage_to_adjust = st.slider('Select percentage (%) of converted Predicted Order Dates', 50, 100, 75)  # Adjust min/max as needed
