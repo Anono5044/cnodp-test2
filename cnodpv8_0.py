@@ -273,13 +273,15 @@ elif menu_option == "Benefits":
         
         # Calculate RMSE (square root of mean squared error)
         rmse = mean_squared_error(test_data.Days_Next_Order, y_pred, squared=False)  # Square root for RMSE
-
+        print('RMSE have been extracted')
+        
         # Print the RMSE
         #st.write(f"RMSE: {rmse:.2f}")
 
         # Predict next orders iteratively
         #projection_data = cnod.sim_predict_next_orders(test_data.copy(deep=True), model, 'Avg', 0, limit_number_cust) 
         projection_data = cnod.sim_predict_next_orders(test_data[test_data.AccountNo.isin(baseline.AccountNo.unique())], model, 'Avg', 0, limit_number_cust)
+        print('projection data have been extracted')
         
         return raw, baseline, projection_data 
 
