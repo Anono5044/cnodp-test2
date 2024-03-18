@@ -270,8 +270,8 @@ class Cnod:
 
                 projections.extend(customer_projection.to_dict(orient="records"))
                 loop_ctrler = loop_ctrler+1
-                if loop_ctrler > 301:
-                    print('loop_ctrler value: ', loop_ctrler)
+                if loop_ctrler > 240:
+                    print('Limited number of customers to: ', loop_ctrler)
                     break
 
             return pd.DataFrame(projections)
