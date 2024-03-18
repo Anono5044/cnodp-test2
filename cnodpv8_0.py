@@ -315,7 +315,7 @@ elif menu_option == "Benefits":
 
     # Package final dataframe
     Comparison_df = baseline.merge(ml_projection, on='AccountNo', how='inner').merge(
-        raw[['AccountNo','MarketSector','CustRegion', 'CustSubRegion']].drop_duplicates(subset=['AccountNo']),on='AccountNo', how='inner') 
+        raw[['AccountNo','MarketSector','CustRegion', 'CustSubRegion']].drop_duplicates(subset=['AccountNo']),on='AccountNo', how='inner').reset_index() 
     #st.dataframe(Comparison_df)
     raw= None
     baseline= None
