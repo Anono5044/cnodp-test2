@@ -53,13 +53,13 @@ if menu_option == "The Context":
         """**Solution:** Leverage data analytics and machine learning to predict customers' next fuel needs and proactively engage them with targeted offers at the right time. This approach aims to improve customer satisfaction, increase loyalty, and drive business growth."""
     )
 
-'''
+
 # 2. Insights
 elif menu_option == "Insights":
     st.markdown("# Next Order Date Insight")
     #st.sidebar.header("DataFrame Demo")      
     tab1, tab2, tab3, tab4, tab5 = st.tabs([":clipboard: Data", ":calendar: Estimate Order Dates", ":people_holding_hands: Personalised Marketing", ":question: Contributing Factors", ":bar_chart: Multiple Customers' Same Day Orders"])
-    @st.cache_data
+    #@st.cache_data
     def data():        
         # Collect data
         raw = pd.read_parquet("sample_pricing_v2 3.parquet")
@@ -227,7 +227,7 @@ elif menu_option == "Insights":
         
     with tab5:
         multiple_cust_same_day_order()
-'''
+
 
 # 3. Benefits
 elif menu_option == "Benefits":
