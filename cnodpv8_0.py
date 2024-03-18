@@ -316,9 +316,9 @@ elif menu_option == "Benefits":
     Comparison_df = baseline.merge(ml_projection, on='AccountNo', how='inner').merge(
         raw[['AccountNo','MarketSector','CustRegion', 'CustSubRegion']].drop_duplicates(subset=['AccountNo']),on='AccountNo', how='inner') 
     #st.dataframe(Comparison_df)
-    raw=none
-    baseline=none
-    ml_projection=none
+    raw= None
+    baseline= None
+    ml_projection= None
     
     
     # Create a slider to select the percentage adjustment
