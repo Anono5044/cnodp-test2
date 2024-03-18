@@ -220,7 +220,7 @@ class Cnod:
 
         return df
 
-    def sim_predict_next_orders(self, data, model, qty_price_assumption, adj_days=7, number_cust):
+    def sim_predict_next_orders(self, data, model, qty_price_assumption, adj_days=7, number_cust=300):
         """
         Iteratively predicts next order dates for each customer within the evaluation period.
         """
