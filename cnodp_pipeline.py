@@ -220,7 +220,7 @@ class Cnod:
 
         return df
 
-    def sim_predict_next_orders(self, data, model, qty_price_assumption, adj_days=7):
+    def sim_predict_next_orders(self, data, model, qty_price_assumption, adj_days=7, number_cust):
         """
         Iteratively predicts next order dates for each customer within the evaluation period.
         """
@@ -267,12 +267,12 @@ class Cnod:
                       }
                     customer_projection = customer_projection._append(new_order, ignore_index=True)
                     order_date = predicted_date
-
-                projections.extend(customer_projection.to_dict(orient="records"))
-                loop_ctrler = loop_ctrler+1
-                if loop_ctrler > 240:
+                
+                loop_ctrler = loop_ctrler+1                
+                if loop_ctrler > number_cust:
                     print('Limited number of customers to: ', loop_ctrler)
                     break
+                projections.extend(customer_projection.to_dict(orient="records"))
 
             return pd.DataFrame(projections)
 
