@@ -302,13 +302,15 @@ elif menu_option == "Benefits":
     
     # Load data
     raw, baseline, projection_data = load_data()
+    print('Data loaded')
 
     # Dataframe with projected quantity and price
     ml_projection = projection_data.groupby(["AccountNo",'Segment']).agg({
       "sim_Quantity": "sum",
       "sim_Price": "sum"
     }).reset_index()
-
+    print('ml_projection is ready')
+    
     # Print baseline and ml_projection totals
     #st.write("Baseline Total (Quantity, Price): ", baseline['Quantity'].sum(), baseline['Price'].sum()) 
     #st.write("ML Projection Total (Quantity, Price): ", ml_projection['sim_Quantity'].sum(), ml_projection['sim_Price'].sum())
@@ -320,23 +322,25 @@ elif menu_option == "Benefits":
     raw= None
     baseline= None
     ml_projection= None
-    
+    print('Comparison_df is ready')
     
     # Create a slider to select the percentage adjustment
     percentage_to_adjust = st.slider('Select percentage (%) of converted Predicted Order Dates', 50, 100, 75)  # Adjust min/max as needed
 
     # Adjust the DataFrame based on the selected percentage
     Comparison_df = adjust_revenue(Comparison_df.copy(), percentage_to_adjust)
-    
+    print('Get ready to adjust')
     #=======================================
 
     # Calculate total original and predicted price
     total_original_price = Comparison_df['Price'].sum()
     total_predicted_price = Comparison_df['adjusted_sim_Price'].sum()
+    print('total_original_price and total_predicted_price have been calculated')
     
     # Calculate uplift 
     uplift_percent = ((total_predicted_price - total_original_price) / total_original_price) * 100
     uplift_money = total_predicted_price - total_original_price
+    print('uplift have been calculated')
 
     # Create Streamlit app layout
     #st.title("Price Prediction Analysis")
