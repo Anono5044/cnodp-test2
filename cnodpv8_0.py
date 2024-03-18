@@ -257,6 +257,7 @@ elif menu_option == "Benefits":
         limit_number_cust = 100 #240
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
         baseline = baseline.head(limit_number_cust)
+        print('baseline have been calculated')
         
         # Train a model 
         model = XGBRegressor(n_estimators = 200) 
