@@ -53,6 +53,7 @@ if menu_option == "The Context":
         """**Solution:** Leverage data analytics and machine learning to predict customers' next fuel needs and proactively engage them with targeted offers at the right time. This approach aims to improve customer satisfaction, increase loyalty, and drive business growth."""
     )
 
+'''
 # 2. Insights
 elif menu_option == "Insights":
     st.markdown("# Next Order Date Insight")
@@ -226,7 +227,7 @@ elif menu_option == "Insights":
         
     with tab5:
         multiple_cust_same_day_order()
-
+'''
 
 # 3. Benefits
 elif menu_option == "Benefits":
