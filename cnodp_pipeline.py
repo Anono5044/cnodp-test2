@@ -267,6 +267,7 @@ class Cnod:
                       }
                     customer_projection = customer_projection._append(new_order, ignore_index=True)
                     order_date = predicted_date
+                    print('customer: ',customer_id)
                 
                 loop_ctrler = loop_ctrler+1                
                 if loop_ctrler > number_cust:
