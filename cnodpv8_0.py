@@ -277,7 +277,7 @@ elif menu_option == "Benefits":
 
         # Predict next orders iteratively
         #projection_data = cnod.sim_predict_next_orders(test_data.copy(deep=True), model, 'Avg', 0, limit_number_cust) 
-        projection_data = cnod.sim_predict_next_orders(test_data[test_data.AccountNo.isin(baseline.AccountNo.unique()], model, 'Avg', 0, limit_number_cust)
+        projection_data = cnod.sim_predict_next_orders(test_data[test_data.AccountNo.isin(baseline.AccountNo.unique())], model, 'Avg', 0, limit_number_cust)
         
         return raw, baseline, projection_data 
 
