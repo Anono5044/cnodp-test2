@@ -255,7 +255,8 @@ elif menu_option == "Benefits":
 
         # Dataframe with actual quantity and price from test data
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
-
+        baseline = baseline.head(240)
+        
         # Train a model 
         model = XGBRegressor(n_estimators = 200) 
         model.fit(train_data[["Quantity", "total_price", 'CreditLimit', 'AccountNo_CV', 'MarketSector_CV', 
