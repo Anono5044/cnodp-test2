@@ -254,8 +254,9 @@ elif menu_option == "Benefits":
         train_data, test_data = train_test_split(cnod.training_and_validation, test_size=0.2, random_state=14, shuffle=False)
 
         # Dataframe with actual quantity and price from test data
+        limit_number_cust = 240
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
-        baseline = baseline.head(240)
+        baseline = baseline.head(limit_number_cust)
         
         # Train a model 
         model = XGBRegressor(n_estimators = 200) 
@@ -275,7 +276,7 @@ elif menu_option == "Benefits":
         #st.write(f"RMSE: {rmse:.2f}")
 
         # Predict next orders iteratively
-        projection_data = cnod.sim_predict_next_orders(test_data.copy(deep=True), model, 'Avg', 0) 
+        projection_data = cnod.sim_predict_next_orders(test_data.copy(deep=True), model, 'Avg', 0, limit_number_cust) 
         
         return raw, baseline, projection_data 
 
