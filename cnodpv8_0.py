@@ -59,7 +59,7 @@ elif menu_option == "Insights":
     st.markdown("# Next Order Date Insight")
     #st.sidebar.header("DataFrame Demo")      
     tab1, tab2, tab3, tab4, tab5 = st.tabs([":clipboard: Data", ":calendar: Estimate Order Dates", ":people_holding_hands: Personalised Marketing", ":question: Contributing Factors", ":bar_chart: Multiple Customers' Same Day Orders"])
-    #@st.cache_data
+    @st.cache_data
     def data():        
         # Collect data
         raw = pd.read_parquet("sample_pricing_v2 3.parquet")
@@ -80,6 +80,8 @@ elif menu_option == "Insights":
         'OrderDate': 'LastOrderDate'}
         estimates.rename(columns=dict,
                   inplace=True)
+        raw = None #************************
+        cnod = None #***********************
         return df, estimates   
     
     def treemap_(data):
@@ -249,13 +251,14 @@ elif menu_option == "Benefits":
         year = today.year
         cnod = cp(df, 2, 10, 5, '2021-04-01', year) #10
         _, _ = cnod.data_prep()
+        df = None #*****************************************
         
         # Split data into train and test sets
         cnod.training_and_validation.sort_values(by=['OrderDate','AccountNo'], inplace=True)
         train_data, test_data = train_test_split(cnod.training_and_validation, test_size=0.2, random_state=14, shuffle=False)
 
         # Dataframe with actual quantity and price from test data
-        limit_number_cust = 85 #240
+        limit_number_cust = 100 #240 #85
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
         baseline = baseline.head(limit_number_cust)
         print('baseline have been calculated')
@@ -275,6 +278,8 @@ elif menu_option == "Benefits":
         # Calculate RMSE (square root of mean squared error)
         rmse = mean_squared_error(test_data.Days_Next_Order, y_pred, squared=False)  # Square root for RMSE
         print('RMSE have been extracted')
+        train_data = None #********************************
+        #test_data = None #*********************************
         
         # Print the RMSE
         #st.write(f"RMSE: {rmse:.2f}")
