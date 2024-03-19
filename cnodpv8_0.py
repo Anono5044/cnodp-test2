@@ -238,7 +238,7 @@ elif menu_option == "Benefits":
     
     # Function to load data and perform calculations
     #@st.cache_data
-    @st.cache_data(max_entries=3)
+    @st.cache_data
     def load_data():
         # Collect data
         raw = pd.read_parquet("sample_pricing_v2 3.parquet")
