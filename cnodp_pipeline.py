@@ -275,7 +275,6 @@ class Cnod:
                     print('Limited number of customers to: ', loop_ctrler)
                     break
                 projections.extend(customer_projection.to_dict(orient="records"))
-                print('****I am here*****')
 
             return pd.DataFrame(projections)
 
