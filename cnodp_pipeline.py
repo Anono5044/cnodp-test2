@@ -220,11 +220,11 @@ class Cnod:
 
         return df
 
-    def sim_predict_next_orders(self, data, model, qty_price_assumption, adj_days=7, number_cust=300):
+    def sim_predict_next_orders(self, test_data_actual, model, qty_price_assumption, adj_days=7, number_cust=302): #********************replaced 'data' with 'test_data_actual'
         """
         Iteratively predicts next order dates for each customer within the evaluation period.
         """
-        test_data_actual = data.copy()
+        #test_data_actual = data.copy() #*************************************************
         evaluation_start = test_data_actual["OrderDate"].min()
         evaluation_end = test_data_actual["OrderDate"].max()
         projections = []
@@ -233,7 +233,7 @@ class Cnod:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             for customer_id in tqdm(test_data_actual["AccountNo"].unique(), desc="Predicting next orders"):
-                print('customer_id')
+                #print('customer_id') #*********************************************************************************
                 customer_data = test_data_actual.loc[test_data_actual["AccountNo"] == customer_id]
                 order_date = evaluation_start #customer_data["OrderDate"].iloc[0]  # Initial order date
                 customer_projection = pd.DataFrame()
