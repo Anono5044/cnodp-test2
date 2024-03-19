@@ -261,7 +261,7 @@ elif menu_option == "Benefits":
         # Dataframe with actual quantity and price from test data
         limit_number_cust = 80 #240 #85 #100
         baseline = test_data.groupby("AccountNo").agg(Quantity=("Quantity", "sum"), Price=("total_price", "sum")).reset_index()
-        baseline = baseline.head(limit_number_cust)
+        baseline = baseline.sort_values(by=['Price']).head(limit_number_cust)
         print('baseline have been calculated')
         
         # Train a model 
