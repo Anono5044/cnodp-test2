@@ -336,7 +336,7 @@ elif menu_option == "Benefits":
     print('Comparison_df is ready')
     
     # Create a slider to select the percentage adjustment
-    percentage_to_adjust = st.slider('Select percentage (%) of converted Predicted Order Dates', 50, 100, 75)  # Adjust min/max as needed
+    percentage_to_adjust = st.slider('Select percentage (%) of converted Predicted Order Dates', 50, 70, 60)  # Adjust min/max as needed #50, 100, 75
 
     # Adjust the DataFrame based on the selected percentage
     Comparison_df = adjust_revenue(Comparison_df.copy(), percentage_to_adjust)
@@ -365,7 +365,7 @@ elif menu_option == "Benefits":
             value=total_predicted_price,
             title={"text": "Revenue"},
             gauge={
-                "axis": {"range": [None, 100000000]},
+                "axis": {"range": [None, 10000000]}, #100000000 #**********************************
                 "threshold": {
                     "line": {"color": "red", "width": 4},
                     "value": total_original_price
